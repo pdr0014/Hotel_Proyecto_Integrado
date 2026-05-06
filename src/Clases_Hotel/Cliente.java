@@ -6,5 +6,57 @@ public class Cliente {
 	private String apellidos="";
 	private String DNI="";
 	private String email="";
-	private int telefeno=0;
+	private int telefono=0;
+	
+	public Cliente (String nombre, String apellidos, String DNI, String email, int telefono) 
+	{
+		this.nombre=nombre;
+		this.apellidos=apellidos;
+		this.DNI=DNI;
+		this.email=email;
+		this.telefono=telefono;
+	}
+	
+	
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public String getApellidos() {
+		return apellidos;
+	}
+	public void setApellidos(String apellidos) {
+		this.apellidos = apellidos;
+	}
+	public String getDNI() {
+		return DNI;
+	}
+	public void setDNI(String DNI) {
+		this.DNI = DNI;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public int getTelefeno() {
+		return telefono;
+	}
+	public void setTelefeno(int telefeno) {
+		this.telefono = telefeno;
+	}
+	
+	
+	public void reservarHabitacion() 
+	{
+		
+	}
+	
+	
+	
+	
+	
 }
