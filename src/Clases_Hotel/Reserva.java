@@ -8,6 +8,10 @@ public class Reserva {
 	private String estadoPago="";
 	
 	
+	public Arraylist<> listaRegistros()
+	{
+		
+	}
 	
 	public boolean cambiarDia() 
 	{
