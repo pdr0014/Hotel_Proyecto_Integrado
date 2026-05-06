@@ -49,6 +49,13 @@ public class Cliente {
 		this.telefono = telefeno;
 	}
 	
+	public void reservarHabitacion() 
+	{
+		
+	}
+	
+	
+	
 	
 	
 }
