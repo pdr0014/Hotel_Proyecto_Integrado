@@ -86,19 +86,25 @@ public class Ventana_AñadirCliente extends JFrame {
         btnGuardar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
-                // 1. Comprobamos que los campos no estén vacíos
+                //Comprobamos que los campos no estén vacíos
                 if (txtNombre.getText().isEmpty() || txtDni.getText().isEmpty()
                         || txtTelefono.getText().isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Por favor, rellena todos los campos.");
                     return;
                 }
 
-                // 2. Recogemos los datos de los campos
+                //Recogemos los datos de los campos
                 String nombre = txtNombre.getText();
                 String dni = txtDni.getText();
                 int telefono = Integer.parseInt(txtTelefono.getText());
 
+
                 // 3. Creamos el objeto Cliente
+
+                //Creamos el objeto Cliente
+                Cliente cliente = new Cliente(nombre, "", dni, "", telefono);
+
+
 
                 try {
 					conexion.conectar();
@@ -109,6 +115,10 @@ public class Ventana_AñadirCliente extends JFrame {
 				}
                 
                 // 4. Confirmamos al usuario
+
+
+                //Confirmamos al usuario
+
                 JOptionPane.showMessageDialog(null, "Cliente " + nombre + " guardado con éxito.");
                 System.out.println("Cliente creado: " + nombre + " | DNI: " + dni);
             }
@@ -122,7 +132,7 @@ public class Ventana_AñadirCliente extends JFrame {
             public void actionPerformed(ActionEvent e) {
 
                 new Ventana_1().setVisible(true);//REGRESA A LA VENTANA
-            	new Ventana_1().setVisible(true);//REGRESA A LA VENTANA
+            	new Ventana_1().setVisible(true);//REGRESA A LA VENTAN
                 dispose();//ESTO CIERA LA VENTANA
             }
         });
@@ -130,4 +140,4 @@ public class Ventana_AñadirCliente extends JFrame {
 
         setResizable(false);
     }
-}
+} 
