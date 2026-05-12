@@ -58,7 +58,7 @@ public class Ventana_1 extends JFrame {
 		
 		//ABRIR VENTANA
 		btnNewButton = new JButton("Añadir Cliente");
-		btnNewButton.setBounds(167, 110, 99, 23);
+		btnNewButton.setBounds(142, 110, 150, 23);
 		btnNewButton.setBackground(new Color(255, 255, 255));
 		btnNewButton.addActionListener(new ActionListener() {
 		    public void actionPerformed(ActionEvent e) {
@@ -73,24 +73,34 @@ public class Ventana_1 extends JFrame {
 		
 		//BOTON RESERVAR HABITACIÓN
 		JButton btnNewButton_1 = new JButton("Reservar Habitación");
-		btnNewButton_1.setBounds(152, 144, 129, 23);
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNewButton_1.setBackground(new Color(255, 255, 255));
+		btnNewButton_1.setBounds(142, 144, 150, 23);
 		getContentPane().add(btnNewButton_1);
 		
 		
 		//BOTON ELIMINAR RESERVA
 		JButton btnNewButton_2 = new JButton("Eliminar Reserva");
+		btnNewButton_2.setBackground(new Color(255, 255, 255));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton_2.setBounds(161, 212, 111, 23);
+		btnNewButton_2.setBounds(142, 212, 150, 23);
 		getContentPane().add(btnNewButton_2);
 		
 		
 		//BOTON ACTUALIZAR RESERVA
 		JButton btnNewButton_3 = new JButton("Actualizar Reserva");
-		btnNewButton_3.setBounds(155, 178, 123, 23);
+		btnNewButton_3.setBackground(new Color(255, 255, 255));
+		btnNewButton_3.setBounds(142, 178, 150, 23);
 		getContentPane().add(btnNewButton_3);
 		
+		
+		setResizable(false);
 	}
+	
 }

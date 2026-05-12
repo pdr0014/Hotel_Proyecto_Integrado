@@ -92,7 +92,18 @@ public class Ventana_AñadirCliente extends JFrame {
 	            System.out.println("Cliente guardado");
 	        }
 	    });
+	    
+	    
+	    
 	    contentPane.add(btnGuardar);
+	    
+	    
+	    
+	    //BOTON VOLVER
+	    JButton btnNewButton = new JButton("Volver");
+	    btnNewButton.setBounds(0, 0, 89, 23);
+	    contentPane.add(btnNewButton);
+	    
+	    setResizable(false);
 	}
-
 }
