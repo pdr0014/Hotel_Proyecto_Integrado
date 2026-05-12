@@ -105,12 +105,6 @@ public class Ventana_AñadirCliente extends JFrame {
                 int telefono = Integer.parseInt(txtTelefono.getText());
 
 
-                // 3. Creamos el objeto Cliente, creamos el insert y confirmamos al usuario
-
-                Cliente cliente = new Cliente(nombre, "", dni, "", telefono);
-
-
-
                 try {
                     conexion.conectar();
                     
