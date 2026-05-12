@@ -98,6 +98,7 @@ public class Ventana_AñadirCliente extends JFrame {
                 // 3. Creamos el objeto Cliente
                 Cliente cliente = new Cliente(nombre, "", dni, "", telefono);
 
+
                 // 4. Confirmamos al usuario
                 JOptionPane.showMessageDialog(null, "Cliente " + nombre + " guardado con éxito.");
                 System.out.println("Cliente creado: " + nombre + " | DNI: " + dni);
