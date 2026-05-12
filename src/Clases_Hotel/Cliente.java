@@ -50,15 +50,25 @@ public class Cliente {
 	}
 	
 	
-	public void reservarHabitacion() 
-	{
-		
-	}
-	
-	public boolean cancelarReservar() 
-	{
-		
-	}
+	public void reservarHabitacion(Habitacion habitacion, Reserva reserva) {
+        if (habitacion.getestado().equalsIgnoreCase("disponible")) {
+            habitacion.setestado("ocupada");
+            reserva.setestadoPago("pendiente");
+            System.out.println("Reserva realizada con exito en la habitacion numero " + habitacion.getnumeroHabitacion());
+        } else {
+            System.out.println("La habitacion no esta disponible");
+        }
+    }
+
+    public void cancelarReserva(Habitacion habitacion, Reserva reserva) {
+        if (reserva.getestadoPago().equalsIgnoreCase("pendiente")) {
+            reserva.setestadoPago("cancelada");
+            habitacion.setestado("disponible");
+            System.out.println("Reserva cancelada con exito");
+        } else {
+            System.out.println("No se puede cancelar, la reserva ya estaba cancelada o no existe");
+        }
+    }
 	
 	
 	
