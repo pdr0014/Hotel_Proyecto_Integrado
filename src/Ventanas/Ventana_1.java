@@ -47,7 +47,7 @@ public class Ventana_1 extends JFrame {
 		getContentPane().setLayout(null);
 		
 		
-		//TITULO INICIOO
+		//TITULO INICIO
 		JLabel lblNewLabel = new JLabel("INICIO");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 29));
 		lblNewLabel.setBounds(172, 41, 90, 45);
