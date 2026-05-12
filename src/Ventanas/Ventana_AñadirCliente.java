@@ -105,28 +105,27 @@ public class Ventana_AñadirCliente extends JFrame {
                 int telefono = Integer.parseInt(txtTelefono.getText());
 
 
-                // 3. Creamos el objeto Cliente
+                // 3. Creamos el objeto Cliente, creamos el insert y confirmamos al usuario
 
-                //Creamos el objeto Cliente
                 Cliente cliente = new Cliente(nombre, "", dni, "", telefono);
 
 
 
                 try {
-					conexion.conectar();
-					
-				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-                
-                // 4. Confirmamos al usuario
-
-
-                //Confirmamos al usuario
-
-                JOptionPane.showMessageDialog(null, "Cliente " + nombre + " guardado con éxito.");
-                System.out.println("Cliente creado: " + nombre + " | DNI: " + dni);
+                    conexion.conectar();
+                    
+                    String sentencia = "INSERT INTO Clientes (DNI, Nombre, Apellidos, Email, Telefono) VALUES ('"
+                        + dni + "', '" + nombre + "', '', '', '" + telefono + "')";
+                    
+                    int filas = conexion.ejecutarInsertDeleteUpdate(sentencia);
+                    
+                    if (filas > 0) {
+                        JOptionPane.showMessageDialog(null, "Cliente " + nombre + " guardado con éxito.");
+                    }
+                    
+                } catch (SQLException e1) {
+                    JOptionPane.showMessageDialog(null, "Error al guardar: " + e1.getMessage());
+                }
             }
         });
         contentPane.add(btnGuardar);
