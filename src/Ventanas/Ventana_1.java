@@ -67,6 +67,7 @@ public class Ventana_1 extends JFrame {
 		        dispose();//CERRAR VENTANA
 		    }
 		});
+		
 		getContentPane().add(btnNewButton);
 		
 		
