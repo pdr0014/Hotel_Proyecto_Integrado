@@ -28,10 +28,6 @@ public class Reserva {
 		
 	}
 	
-	public Iterator<> eliminarHabitacion()
-	{
-		
-	}
 	
 	//si no hay ninguna reserva no sale nada
 }

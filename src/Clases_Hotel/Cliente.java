@@ -55,6 +55,11 @@ public class Cliente {
 		
 	}
 	
+	public boolean cancelarReservar() 
+	{
+		
+	}
+	
 	
 	
 	
