@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -20,6 +21,8 @@ public class Ventana_AñadirCliente extends JFrame {
     private static final long serialVersionUID = 1L;
     private JPanel contentPane;
 
+    public ConexionMySQL conexion=new ConexionMySQL("root","","hotel_reservas");
+    
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -96,8 +99,15 @@ public class Ventana_AñadirCliente extends JFrame {
                 int telefono = Integer.parseInt(txtTelefono.getText());
 
                 // 3. Creamos el objeto Cliente
-                Cliente cliente = new Cliente(nombre, "", dni, "", telefono);
 
+                try {
+					conexion.conectar();
+					
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+                
                 // 4. Confirmamos al usuario
                 JOptionPane.showMessageDialog(null, "Cliente " + nombre + " guardado con éxito.");
                 System.out.println("Cliente creado: " + nombre + " | DNI: " + dni);
