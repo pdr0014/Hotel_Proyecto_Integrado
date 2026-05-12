@@ -36,11 +36,11 @@ public class ConexionMySQL {
      * @param pass Contraseña del usuario
      * @param bd Base de datos a la que nos conectamos
      */
-    public ConexionMySQL(String usuario, String pass, String bd) {
+    public ConexionMySQL(String root, String pass, String hotel_reservas) {
         HOST = "localhost";
-        USUARIO = usuario;
-        PASS = pass;
-        BD = bd;
+        USUARIO = root;
+        PASS = "";
+        BD = hotel_reservas;
         connection = null;
     }
 
