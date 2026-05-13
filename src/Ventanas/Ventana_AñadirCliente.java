@@ -40,9 +40,8 @@ public class Ventana_AñadirCliente extends JFrame {
     }
 
     public Ventana_AñadirCliente() {
-    	setSize(450, 350); //TAMAÑO DE LA VENTANA 
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setBounds(100, 100, 450, 300);
+        setSize(450, 450);
         setLocationRelativeTo(null);
         setTitle("Añadir Cliente");
 
@@ -60,63 +59,100 @@ public class Ventana_AñadirCliente extends JFrame {
 
         // Nombre
         JLabel lblNombre = new JLabel("Nombre:");
-        lblNombre.setBounds(71, 49, 41, 20);
+        lblNombre.setBounds(57, 55, 60, 20);
         contentPane.add(lblNombre);
-
         JTextField txtNombre = new JTextField();
-        txtNombre.setBounds(117, 49, 200, 20);
+        txtNombre.setBounds(117, 55, 200, 20);
         contentPane.add(txtNombre);
 
-        // DNI
-        JLabel lblDni = new JLabel("DNI:");
-        lblDni.setBounds(90, 140, 22, 20);
-        contentPane.add(lblDni);
-
-        JTextField txtDni = new JTextField();
-        txtDni.setBounds(117, 109, 200, 20);
-        contentPane.add(txtDni);
+        // Apellidos
+        JLabel lblApellidos = new JLabel("Apellidos:");
+        lblApellidos.setBounds(52, 86, 60, 20);
+        contentPane.add(lblApellidos);
+        JTextField txtApellidos = new JTextField();
+        txtApellidos.setBounds(117, 85, 200, 20);
+        contentPane.add(txtApellidos);
 
         // Teléfono
         JLabel lblTelefono = new JLabel("Teléfono:");
-        lblTelefono.setBounds(66, 109, 46, 20);
+        lblTelefono.setBounds(52, 116, 65, 20);
         contentPane.add(lblTelefono);
-
         JTextField txtTelefono = new JTextField();
-        txtTelefono.setBounds(117, 140, 200, 20);
+        txtTelefono.setBounds(117, 115, 200, 20);
         contentPane.add(txtTelefono);
+
+        // DNI
+        JLabel lblDni = new JLabel("DNI:");
+        lblDni.setBounds(75, 146, 37, 20);
+        contentPane.add(lblDni);
+        JTextField txtDni = new JTextField();
+        txtDni.setBounds(117, 145, 200, 20);
+        contentPane.add(txtDni);
+
+        // Email
+        JLabel lblEmail = new JLabel("Email:");
+        lblEmail.setBounds(70, 177, 37, 20);
+        contentPane.add(lblEmail);
+        JTextField txtEmail = new JTextField();
+        txtEmail.setBounds(117, 175, 200, 20);
+        contentPane.add(txtEmail);
+
+        // Dirección
+        JLabel lblDireccion = new JLabel("Dirección:");
+        lblDireccion.setBounds(52, 208, 59, 20);
+        contentPane.add(lblDireccion);
+        JTextField txtDireccion = new JTextField();
+        txtDireccion.setBounds(117, 205, 200, 20);
+        contentPane.add(txtDireccion);
+
+        // Código Postal
+        JLabel lblCodPostal = new JLabel("Cód. Postal:");
+        lblCodPostal.setBounds(40, 235, 71, 20);
+        contentPane.add(lblCodPostal);
+        JTextField txtCodPostal = new JTextField();
+        txtCodPostal.setBounds(117, 235, 200, 20);
+        contentPane.add(txtCodPostal);
+
+        // Ciudad
+        JLabel lblCiudad = new JLabel("Ciudad:");
+        lblCiudad.setBounds(62, 266, 55, 20);
+        contentPane.add(lblCiudad);
+        JTextField txtCiudad = new JTextField();
+        txtCiudad.setBounds(117, 265, 200, 20);
+        contentPane.add(txtCiudad);
 
         // Botón Guardar
         JButton btnGuardar = new JButton("Guardar");
         btnGuardar.setBackground(new Color(255, 255, 255));
-        btnGuardar.setBounds(345, -1, 89, 25);
+        btnGuardar.setBounds(157, 316, 120, 25);
         btnGuardar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-
-                //Comprobamos que los campos no estén vacíos
-                if (txtNombre.getText().isEmpty() || txtDni.getText().isEmpty()
-                        || txtTelefono.getText().isEmpty()) {
+                if (txtNombre.getText().isEmpty() || txtApellidos.getText().isEmpty() ||
+                    txtDni.getText().isEmpty() || txtTelefono.getText().isEmpty() ||
+                    txtEmail.getText().isEmpty() || txtDireccion.getText().isEmpty() ||
+                    txtCiudad.getText().isEmpty() || txtCodPostal.getText().isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Por favor, rellena todos los campos.");
                     return;
                 }
 
-                //Recogemos los datos de los campos
                 String nombre = txtNombre.getText();
+                String apellidos = txtApellidos.getText();
                 String dni = txtDni.getText();
                 int telefono = Integer.parseInt(txtTelefono.getText());
-
+                String email = txtEmail.getText();
+                String direccion = txtDireccion.getText();
+                String ciudad = txtCiudad.getText();
+                String codPostal = txtCodPostal.getText();
 
                 try {
                     conexion.conectar();
-                    
-                    String sentencia = "INSERT INTO Clientes (DNI, Nombre, Apellidos, Email, Telefono) VALUES ('"
-                        + dni + "', '" + nombre + "', '', '', '" + telefono + "')";
-                    
+                    String sentencia = "INSERT INTO Clientes (DNI, Nombre, Apellidos, Email, Telefono, Direccion, Ciudad, CodigoPostal) VALUES ('"
+                        + dni + "', '" + nombre + "', '" + apellidos + "', '" + email + "', '"
+                        + telefono + "', '" + direccion + "', '" + ciudad + "', '" + codPostal + "')";
                     int filas = conexion.ejecutarInsertDeleteUpdate(sentencia);
-                    
                     if (filas > 0) {
                         JOptionPane.showMessageDialog(null, "Cliente " + nombre + " guardado con éxito.");
                     }
-                    
                 } catch (SQLException e1) {
                     JOptionPane.showMessageDialog(null, "Error al guardar: " + e1.getMessage());
                 }
@@ -124,57 +160,17 @@ public class Ventana_AñadirCliente extends JFrame {
         });
         contentPane.add(btnGuardar);
 
-        // BOTON VOLVER
-        JButton btnNewButton = new JButton("Volver");
-        btnNewButton.setBackground(new Color(255, 255, 255));
-        btnNewButton.setBounds(0, 0, 89, 23);
-        btnNewButton.addActionListener(new ActionListener() {
+        // Botón Volver
+        JButton btnVolver = new JButton("Volver");
+        btnVolver.setBackground(new Color(255, 255, 255));
+        btnVolver.setBounds(0, 0, 89, 23);
+        btnVolver.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-            	new Ventana_1().setVisible(true);//REGRESA A LA VENTANA
-                dispose();//ESTO CIERA LA VENTANAA
+                new Ventana_1().setVisible(true);
+                dispose();
             }
         });
-        contentPane.add(btnNewButton);
-        
-        JLabel lblNewLabel = new JLabel("Apellidos:");
-        lblNewLabel.setBounds(66, 80, 46, 14);
-        contentPane.add(lblNewLabel);
-        
-        JLabel lblNewLabel_1 = new JLabel("Email:");
-        lblNewLabel_1.setBounds(84, 174, 28, 14);
-        contentPane.add(lblNewLabel_1);
-        
-        JLabel lblNewLabel_2 = new JLabel("Dirección:");
-        lblNewLabel_2.setBounds(65, 205, 47, 14);
-        contentPane.add(lblNewLabel_2);
-        
-        textField = new JTextField();
-        textField.setBounds(117, 78, 200, 20);
-        contentPane.add(textField);
-        textField.setColumns(10);
-        
-        textField_1 = new JTextField();
-        textField_1.setBounds(117, 171, 200, 20);
-        contentPane.add(textField_1);
-        textField_1.setColumns(10);
-        
-        textField_2 = new JTextField();
-        textField_2.setBounds(117, 202, 200, 20);
-        contentPane.add(textField_2);
-        textField_2.setColumns(10);
-        
-        textField_3 = new JTextField();
-        textField_3.setBounds(178, 233, 86, 20);
-        contentPane.add(textField_3);
-        textField_3.setColumns(10);
-        
-        JLabel lblNewLabel_3 = new JLabel("Ciudad");
-        lblNewLabel_3.setBounds(343, 158, 46, 14);
-        contentPane.add(lblNewLabel_3);
-        
-        JLabel lblNewLabel_4 = new JLabel("Codigo Postal");
-        lblNewLabel_4.setBounds(28, 236, 84, 14);
-        contentPane.add(lblNewLabel_4);
+        contentPane.add(btnVolver);
 
         setResizable(false);
     }
