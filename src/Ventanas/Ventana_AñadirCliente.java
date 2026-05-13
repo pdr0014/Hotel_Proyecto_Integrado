@@ -21,10 +21,6 @@ public class Ventana_AñadirCliente extends JFrame {
     private JPanel contentPane;
 
     public ConexionMySQL conexion=new ConexionMySQL("root","","hotel_reservas");
-    private JTextField textField;
-    private JTextField textField_1;
-    private JTextField textField_2;
-    private JTextField textField_3;
     
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
@@ -146,7 +142,7 @@ public class Ventana_AñadirCliente extends JFrame {
 
                 try {
                     conexion.conectar();
-                    String sentencia = "INSERT INTO Clientes (DNI, Nombre, Apellidos, Email, Telefono, Direccion, Ciudad, CodigoPostal) VALUES ('"
+                    String sentencia = "INSERT INTO Clientes (DNI, Nombre, Apellidos, Email, Telefono, Dir_Calle, Dir_Ciudad, Dir_CP) VALUES ('"
                         + dni + "', '" + nombre + "', '" + apellidos + "', '" + email + "', '"
                         + telefono + "', '" + direccion + "', '" + ciudad + "', '" + codPostal + "')";
                     int filas = conexion.ejecutarInsertDeleteUpdate(sentencia);
