@@ -131,7 +131,7 @@ public class Ventana_AñadirCliente extends JFrame {
         btnNewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             	new Ventana_1().setVisible(true);//REGRESA A LA VENTANA
-                dispose();//ESTO CIERA LA VENTANA
+                dispose();//ESTO CIERA LA VENTANAA
             }
         });
         contentPane.add(btnNewButton);
