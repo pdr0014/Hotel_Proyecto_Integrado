@@ -161,6 +161,8 @@ public class Ventana_AñadirCliente extends JFrame {
         btnVolver.setBackground(new Color(255, 255, 255));
         btnVolver.setBounds(0, 0, 89, 23);
         btnVolver.addActionListener(new ActionListener() {
+        	
+        	//VOLVER A VENTANA PRINCIPAL
             public void actionPerformed(ActionEvent e) {
                 new Ventana_1().setVisible(true);
                 dispose();
