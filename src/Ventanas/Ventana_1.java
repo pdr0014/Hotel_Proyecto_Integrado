@@ -88,8 +88,13 @@ public class Ventana_1 extends JFrame {
 		btnNewButton_2.setBackground(new Color(255, 255, 255));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Ventana_EliminarReserva ventana = new Ventana_EliminarReserva();
+			    ventana.setVisible(true);
+			    dispose();
 			}
 		});
+		
+		
 		btnNewButton_2.setBounds(142, 212, 150, 23);
 		getContentPane().add(btnNewButton_2);
 		
