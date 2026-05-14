@@ -6,6 +6,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import java.awt.Color;
+import java.awt.Font;
 
 public class Ventana_EstadoReserva extends JFrame {
 
@@ -33,14 +35,16 @@ public class Ventana_EstadoReserva extends JFrame {
 	 */
 	public Ventana_EstadoReserva() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 508, 376);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(235, 222, 207));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setBounds(196, 100, 46, 14);
+		JLabel lblNewLabel = new JLabel("Estado de la Reserva");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		lblNewLabel.setBounds(138, 11, 206, 32);
 		contentPane.add(lblNewLabel);
 
 	}
