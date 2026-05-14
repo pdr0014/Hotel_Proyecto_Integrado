@@ -61,6 +61,8 @@ public class Ventana_1 extends JFrame {
 		btnNewButton.setBounds(142, 110, 150, 23);
 		btnNewButton.setBackground(new Color(255, 255, 255));
 		btnNewButton.addActionListener(new ActionListener() {
+			
+			//ABRIR VENTANA AÑADIR CLIENTE DESDE VENATANA_1
 		    public void actionPerformed(ActionEvent e) {
 		        Ventana_AñadirCliente ventana = new Ventana_AñadirCliente();
 		        ventana.setVisible(true);
@@ -87,6 +89,8 @@ public class Ventana_1 extends JFrame {
 		JButton btnNewButton_2 = new JButton("Eliminar Reserva");
 		btnNewButton_2.setBackground(new Color(255, 255, 255));
 		btnNewButton_2.addActionListener(new ActionListener() {
+			
+			//ABRIR VENTANA ELIMINAR RESERVA DESDE VENATANA_1
 			public void actionPerformed(ActionEvent e) {
 				Ventana_EliminarReserva ventana = new Ventana_EliminarReserva();
 			    ventana.setVisible(true);
