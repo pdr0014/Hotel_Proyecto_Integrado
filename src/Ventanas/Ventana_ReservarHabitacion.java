@@ -49,13 +49,13 @@ public class Ventana_ReservarHabitacion extends JFrame {
         contentPane.setLayout(null);
         setContentPane(contentPane);
 
-        // ── Título ────────────────────────────────────────────────────────────
+        //Título
         JLabel lblTitulo = new JLabel("RESERVAR HABITACIÓN");
         lblTitulo.setFont(new Font("Tahoma", Font.PLAIN, 20));
         lblTitulo.setBounds(110, 10, 250, 35);
         contentPane.add(lblTitulo);
 
-        // ── Número de habitación ──────────────────────────────────────────────
+        //Número de habitación
         JLabel lblNumHabitacion = new JLabel("Número de habitación:");
         lblNumHabitacion.setFont(new Font("Tahoma", Font.PLAIN, 13));
         lblNumHabitacion.setBounds(158, 69, 138, 20);
@@ -67,7 +67,7 @@ public class Ventana_ReservarHabitacion extends JFrame {
         comboHabitacion.setBounds(168, 100, 96, 25);
         contentPane.add(comboHabitacion);
 
-        // ── Tipo de habitación ────────────────────────────────────────────────
+        //Tipo de habitación
         JLabel lblTipoHabitacion = new JLabel("Tipo de habitación:");
         lblTipoHabitacion.setFont(new Font("Tahoma", Font.PLAIN, 13));
         lblTipoHabitacion.setBounds(158, 149, 118, 20);
@@ -79,7 +79,7 @@ public class Ventana_ReservarHabitacion extends JFrame {
         comboTipo.setBounds(168, 180, 96, 25);
         contentPane.add(comboTipo);
 
-        // ── Botón Guardar ─────────────────────────────────────────────────────
+        //Botón Guardar
         JButton btnGuardar = new JButton("Guardar");
         btnGuardar.setBackground(new Color(255, 255, 255));
         btnGuardar.setBounds(175, 237, 89, 25);
@@ -92,7 +92,7 @@ public class Ventana_ReservarHabitacion extends JFrame {
                 try {
                     conexion.conectar();
 
-                    String sentencia = "INSERT INTO Reservas (Numero_Hab, Tipo, ) VALUES ('"
+                    String sentencia = "INSERT INTO Reservas (Numero_Habitacion, TipoHabitacion) VALUES ('"
                             + numHabitacion + "', '" + tipoHabitacion + "')";
 
                     int filas = conexion.ejecutarInsertDeleteUpdate(sentencia);
