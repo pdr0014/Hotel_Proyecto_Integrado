@@ -75,7 +75,7 @@ public class Ventana_AñadirCliente extends JFrame {
         txtApellidos.setBounds(113, 85, 200, 20);
         contentPane.add(txtApellidos);
 
-        // Teléfono
+        // Teléfonoo
         JLabel lblTelefono = new JLabel("Teléfono:");
         lblTelefono.setFont(new Font("Tahoma", Font.BOLD, 11));
         lblTelefono.setBounds(52, 116, 65, 20);
