@@ -92,7 +92,7 @@ public class Ventana_ReservarHabitacion extends JFrame {
                 try {
                     conexion.conectar();
 
-                    String sentencia = "INSERT INTO Reservas (NumeroHabitacion, TipoHabitacion) VALUES ('"
+                    String sentencia = "INSERT INTO Reservas (Numero_Hab, Tipo, ) VALUES ('"
                             + numHabitacion + "', '" + tipoHabitacion + "')";
 
                     int filas = conexion.ejecutarInsertDeleteUpdate(sentencia);
