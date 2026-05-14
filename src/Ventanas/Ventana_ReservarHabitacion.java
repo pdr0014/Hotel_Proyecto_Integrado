@@ -58,7 +58,7 @@ public class Ventana_ReservarHabitacion extends JFrame {
 		
 		JLabel lblNewLabel_2 = new JLabel("Tipo de habitacion");
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel_2.setBounds(168, 158, 131, 14);
+		lblNewLabel_2.setBounds(168, 189, 131, 14);
 		contentPane.add(lblNewLabel_2);
 		
 		JComboBox comboBox = new JComboBox();
@@ -74,7 +74,7 @@ public class Ventana_ReservarHabitacion extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setBounds(216, 183, 30, 22);
+		comboBox_1.setBounds(216, 214, 30, 22);
 		contentPane.add(comboBox_1);
 
 	}
