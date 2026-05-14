@@ -2,10 +2,12 @@ package Ventanas;
 
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -37,7 +39,7 @@ public class Ventana_AñadirCliente extends JFrame {
 
     public Ventana_AñadirCliente() {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setSize(450, 450);
+        setSize(442, 384);
         setLocationRelativeTo(null);
         setTitle("Añadir Cliente");
 
@@ -49,78 +51,88 @@ public class Ventana_AñadirCliente extends JFrame {
 
         // Título
         JLabel lblTitulo = new JLabel("AÑADIR CLIENTE");
-        lblTitulo.setFont(new Font("Tahoma", Font.PLAIN, 20));
-        lblTitulo.setBounds(141, 10, 152, 35);
+        lblTitulo.setForeground(new Color(0, 0, 0));
+        lblTitulo.setFont(new Font("Tahoma", Font.BOLD, 20));
+        lblTitulo.setBounds(125, 10, 176, 35);
         contentPane.add(lblTitulo);
 
         // Nombre
         JLabel lblNombre = new JLabel("Nombre:");
+        lblNombre.setFont(new Font("Tahoma", Font.BOLD, 11));
+        lblNombre.setForeground(new Color(0, 0, 0));
         lblNombre.setBounds(57, 55, 60, 20);
         contentPane.add(lblNombre);
         JTextField txtNombre = new JTextField();
-        txtNombre.setBounds(117, 55, 200, 20);
+        txtNombre.setBounds(113, 55, 200, 20);
         contentPane.add(txtNombre);
 
         // Apellidos
         JLabel lblApellidos = new JLabel("Apellidos:");
+        lblApellidos.setFont(new Font("Tahoma", Font.BOLD, 11));
         lblApellidos.setBounds(52, 86, 60, 20);
         contentPane.add(lblApellidos);
         JTextField txtApellidos = new JTextField();
-        txtApellidos.setBounds(117, 85, 200, 20);
+        txtApellidos.setBounds(113, 85, 200, 20);
         contentPane.add(txtApellidos);
 
         // Teléfono
         JLabel lblTelefono = new JLabel("Teléfono:");
+        lblTelefono.setFont(new Font("Tahoma", Font.BOLD, 11));
         lblTelefono.setBounds(52, 116, 65, 20);
         contentPane.add(lblTelefono);
         JTextField txtTelefono = new JTextField();
-        txtTelefono.setBounds(117, 115, 200, 20);
+        txtTelefono.setBounds(113, 115, 200, 20);
         contentPane.add(txtTelefono);
 
         // DNI
         JLabel lblDni = new JLabel("DNI:");
+        lblDni.setFont(new Font("Tahoma", Font.BOLD, 11));
         lblDni.setBounds(75, 146, 37, 20);
         contentPane.add(lblDni);
         JTextField txtDni = new JTextField();
-        txtDni.setBounds(117, 145, 200, 20);
+        txtDni.setBounds(113, 145, 200, 20);
         contentPane.add(txtDni);
 
         // Email
         JLabel lblEmail = new JLabel("Email:");
+        lblEmail.setFont(new Font("Tahoma", Font.BOLD, 11));
         lblEmail.setBounds(70, 177, 37, 20);
         contentPane.add(lblEmail);
         JTextField txtEmail = new JTextField();
-        txtEmail.setBounds(117, 175, 200, 20);
+        txtEmail.setBounds(113, 175, 200, 20);
         contentPane.add(txtEmail);
 
         // Dirección
         JLabel lblDireccion = new JLabel("Dirección:");
+        lblDireccion.setFont(new Font("Tahoma", Font.BOLD, 11));
         lblDireccion.setBounds(52, 208, 59, 20);
         contentPane.add(lblDireccion);
         JTextField txtDireccion = new JTextField();
-        txtDireccion.setBounds(117, 205, 200, 20);
+        txtDireccion.setBounds(113, 205, 200, 20);
         contentPane.add(txtDireccion);
 
         // Código Postal
         JLabel lblCodPostal = new JLabel("Cód. Postal:");
+        lblCodPostal.setFont(new Font("Tahoma", Font.BOLD, 11));
         lblCodPostal.setBounds(40, 235, 71, 20);
         contentPane.add(lblCodPostal);
         JTextField txtCodPostal = new JTextField();
-        txtCodPostal.setBounds(117, 235, 200, 20);
+        txtCodPostal.setBounds(113, 235, 200, 20);
         contentPane.add(txtCodPostal);
 
         // Ciudad
         JLabel lblCiudad = new JLabel("Ciudad:");
+        lblCiudad.setFont(new Font("Tahoma", Font.BOLD, 11));
         lblCiudad.setBounds(62, 266, 55, 20);
         contentPane.add(lblCiudad);
         JTextField txtCiudad = new JTextField();
-        txtCiudad.setBounds(117, 265, 200, 20);
+        txtCiudad.setBounds(113, 265, 200, 20);
         contentPane.add(txtCiudad);
 
         // Botón Guardar
         JButton btnGuardar = new JButton("Guardar");
         btnGuardar.setBackground(new Color(255, 255, 255));
-        btnGuardar.setBounds(157, 316, 120, 25);
+        btnGuardar.setBounds(153, 316, 120, 25);
         btnGuardar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if (txtNombre.getText().isEmpty() || txtApellidos.getText().isEmpty() ||
@@ -171,5 +183,6 @@ public class Ventana_AñadirCliente extends JFrame {
         contentPane.add(btnVolver);
 
         setResizable(false);
+        
     }
 } 

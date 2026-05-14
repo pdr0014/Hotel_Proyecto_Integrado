@@ -11,6 +11,8 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.BorderLayout;
 import java.awt.Font;
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -19,7 +21,8 @@ public class Ventana_1 extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 
-	private JButton btnNewButton;	
+	private JButton btnNewButton;
+	private JPanel contentPane;
 	/**
 	 * Launch the application.
 	 */
@@ -46,11 +49,11 @@ public class Ventana_1 extends JFrame {
 		getContentPane().setBackground(new Color(235, 222, 207));
 		getContentPane().setLayout(null);
 		
-		
 		//TITULO INICIO
 		JLabel lblNewLabel = new JLabel("INICIO");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 29));
-		lblNewLabel.setBounds(172, 41, 90, 45);
+		lblNewLabel.setForeground(new Color(255, 255, 255));
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 29));
+		lblNewLabel.setBounds(164, 41, 105, 45);
 		getContentPane().add(lblNewLabel);
 		
 		
@@ -58,6 +61,7 @@ public class Ventana_1 extends JFrame {
 		
 		//ABRIR VENTANA
 		btnNewButton = new JButton("Añadir Cliente");
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnNewButton.setBounds(142, 110, 150, 23);
 		btnNewButton.setBackground(new Color(255, 255, 255));
 		btnNewButton.addActionListener(new ActionListener() {
@@ -76,6 +80,7 @@ public class Ventana_1 extends JFrame {
 		
 		//BOTON RESERVAR HABITACIÓN
 		JButton btnNewButton_1 = new JButton("Reservar Habitación");
+		btnNewButton_1.setFont(new Font("Dialog", Font.BOLD, 12));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -87,6 +92,7 @@ public class Ventana_1 extends JFrame {
 		
 		//BOTON ELIMINAR RESERVA
 		JButton btnNewButton_2 = new JButton("Eliminar Reserva");
+		btnNewButton_2.setFont(new Font("Dialog", Font.BOLD, 12));
 		btnNewButton_2.setBackground(new Color(255, 255, 255));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			
@@ -105,12 +111,21 @@ public class Ventana_1 extends JFrame {
 		
 		//BOTON ACTUALIZAR RESERVA
 		JButton btnNewButton_3 = new JButton("Estado Habitación");
+		btnNewButton_3.setFont(new Font("Dialog", Font.BOLD, 12));
 		btnNewButton_3.setBackground(new Color(255, 255, 255));
 		btnNewButton_3.setBounds(142, 178, 150, 23);
 		getContentPane().add(btnNewButton_3);
 		
 		
 		setResizable(false);
+		
+		JLabel lblFoto1 = new JLabel("");
+		lblFoto1.setBounds(0, 0, 434, 311);
+		ImageIcon icono1 = new ImageIcon(Ventana_1.class.getResource("/Imagenes/Fotillo.png"));
+		Image imagen1 = icono1.getImage().getScaledInstance(450, 350, Image.SCALE_SMOOTH);
+		ImageIcon iconoAjustado1 = new ImageIcon(imagen1);
+		lblFoto1.setIcon(iconoAjustado1);
+		getContentPane().add(lblFoto1);
 	}
 	
 }
