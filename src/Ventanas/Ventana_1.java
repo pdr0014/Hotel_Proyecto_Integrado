@@ -104,7 +104,7 @@ public class Ventana_1 extends JFrame {
 		
 		
 		//BOTON ACTUALIZAR RESERVA
-		JButton btnNewButton_3 = new JButton("Actualizar Reserva");
+		JButton btnNewButton_3 = new JButton("Estado Habitación");
 		btnNewButton_3.setBackground(new Color(255, 255, 255));
 		btnNewButton_3.setBounds(142, 178, 150, 23);
 		getContentPane().add(btnNewButton_3);

@@ -57,7 +57,7 @@ public class Ventana_EliminarReserva extends JFrame {
 	    // Título
 	    JLabel lblTitulo = new JLabel("ELIMINAR RESERVA");
 	    lblTitulo.setFont(new Font("Tahoma", Font.PLAIN, 20));
-	    lblTitulo.setBounds(200, 10, 250, 35);
+	    lblTitulo.setBounds(230, 10, 174, 35);
 	    contentPane.add(lblTitulo);
 
 	    // Tabla
@@ -65,7 +65,7 @@ public class Ventana_EliminarReserva extends JFrame {
 	    DefaultTableModel modelo = new DefaultTableModel(columnas, 0);
 	    JTable tabla = new JTable(modelo);
 	    JScrollPane scrollPane = new JScrollPane(tabla);
-	    scrollPane.setBounds(10, 55, 610, 250);
+	    scrollPane.setBounds(12, 55, 610, 250);
 	    contentPane.add(scrollPane);
 
 	    // Cargar datos de la base de datos
@@ -90,7 +90,7 @@ public class Ventana_EliminarReserva extends JFrame {
 	    // Botón Eliminar
 	    JButton btnEliminar = new JButton("Eliminar Reserva");
 	    btnEliminar.setBackground(new Color(255, 255, 255));
-	    btnEliminar.setBounds(230, 315, 150, 25);
+	    btnEliminar.setBounds(242, 315, 150, 25);
 	    btnEliminar.addActionListener(new ActionListener() {
 	        public void actionPerformed(ActionEvent e) {
 	            int filaSeleccionada = tabla.getSelectedRow();
