@@ -51,22 +51,21 @@ public class Ventana_EstadoHabitacion extends JFrame {
         contentPane.setLayout(null);
         setContentPane(contentPane);
 
-        // ── Título ─────────────────────────────────────────────────────────────
+        //Título
         JLabel lblTitulo = new JLabel("ESTADO DE HABITACIONES");
         lblTitulo.setFont(new Font("Tahoma", Font.PLAIN, 20));
         lblTitulo.setBounds(98, 21, 259, 35);
         contentPane.add(lblTitulo);
 
-        // ── Leyenda ────────────────────────────────────────────────────────────
+        //Leyenda
         JLabel lblLeyenda = new JLabel("D = Disponible   |   O = Ocupada   |   M = Mantenimiento");
         lblLeyenda.setFont(new Font("Tahoma", Font.ITALIC, 10));
         lblLeyenda.setBounds(92, 53, 272, 15);
         contentPane.add(lblLeyenda);
 
-        // ── Tabla ──────────────────────────────────────────────────────────────
+        //Tabla
         String[] columnas = {"Nº Habitación", "Tipo", "Estado"};
         DefaultTableModel modeloTabla = new DefaultTableModel(columnas, 0) {
-            // Celdas no editables
             @Override
             public boolean isCellEditable(int row, int column) {
                 return false;
@@ -91,22 +90,10 @@ public class Ventana_EstadoHabitacion extends JFrame {
         scrollPane.setBounds(50, 79, 355, 255);
         contentPane.add(scrollPane);
 
-        // ── Cargar datos desde la base de datos ────────────────────────────────
+        //Cargar datos desde la base de datos
         cargarEstados(modeloTabla);
 
-        // ── Botón Actualizar ───────────────────────────────────────────────────
-        JButton btnActualizar = new JButton("Actualizar");
-        btnActualizar.setBackground(new Color(255, 255, 255));
-        btnActualizar.setBounds(367, -1, 89, 25);
-        btnActualizar.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                modeloTabla.setRowCount(0); // Limpiar tabla
-                cargarEstados(modeloTabla);
-            }
-        });
-        contentPane.add(btnActualizar);
-
-        // ── Botón Volver ───────────────────────────────────────────────────────
+        //Botón Volver 
         JButton btnVolver = new JButton("Volver");
         btnVolver.setBackground(new Color(255, 255, 255));
         btnVolver.setBounds(0, 0, 89, 23);
@@ -119,14 +106,6 @@ public class Ventana_EstadoHabitacion extends JFrame {
         contentPane.add(btnVolver);
     }
 
-    /**
-     * Consulta la BD y rellena la tabla con el estado de cada habitación.
-     *
-     * Lógica de estado:
-     *   - O (Ocupada)      → existe una reserva activa hoy (CURDATE() entre Fecha_Entrada y Fecha_Salida)
-     *   - M (Mantenimiento)→ la habitación tiene Estado = 'M' en la tabla habitaciones
-     *   - D (Disponible)   → cualquier otro caso
-     */
     private void cargarEstados(DefaultTableModel modelo) {
         try {
             conexion.conectar();
@@ -147,9 +126,9 @@ public class Ventana_EstadoHabitacion extends JFrame {
             ResultSet rs = conexion.ejecutarSelect(sql);
 
             while (rs.next()) {
-                String numHab  = rs.getString("Numero_Hab");
-                String tipo    = rs.getString("Tipo");
-                String estado  = rs.getString("Estado");
+                String numHab = rs.getString("Numero_Hab");
+                String tipo   = rs.getString("Tipo");
+                String estado = rs.getString("Estado");
                 modelo.addRow(new Object[]{numHab, tipo, estado});
             }
 
