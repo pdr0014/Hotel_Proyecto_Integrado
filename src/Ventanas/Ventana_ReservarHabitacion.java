@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.JButton;
@@ -150,31 +151,59 @@ public class Ventana_ReservarHabitacion extends JFrame {
         btnGuardar.setBounds(160, 305, 120, 25);
         btnGuardar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if (txtCliente.getText().isEmpty() ||
-                    txtEntrada.getText().equals("YYYY-MM-DD") ||
-                    txtSalida.getText().equals("YYYY-MM-DD")) {
-                    JOptionPane.showMessageDialog(null, "Por favor, rellena todos los campos.");
-                    return;
-                }
-                String dniCliente = txtCliente.getText();
-                String habitacion = (String) comboHabitacion.getSelectedItem();
-                String fechaEntrada = txtEntrada.getText();
-                String fechaSalida = txtSalida.getText();	
-
-                try {
-                    conexion.conectar();
-                    String sentencia = "INSERT INTO reservas (FK_Cliente, FK_Habitacion, Fecha_Entrada, Fecha_Salida) VALUES ('"
-                            + dniCliente + "', " + habitacion + ", '" + fechaEntrada + "', '"
-                            + fechaSalida + "')";
-                    int filas = conexion.ejecutarInsertDeleteUpdate(sentencia);
-                    if (filas > 0) {
-                        JOptionPane.showMessageDialog(null, "Reserva guardada con éxito.");
+            	if (txtCliente.getText().isEmpty() ||
+                        txtEntrada.getText().equals("YYYY-MM-DD") ||
+                        txtSalida.getText().equals("YYYY-MM-DD")) {
+                        JOptionPane.showMessageDialog(null, "Por favor, rellena todos los campos.");
+                        return;
                     }
-                } catch (SQLException e1) {
-                    JOptionPane.showMessageDialog(null, "Error al guardar: " + e1.getMessage());
+
+                    String dniCliente = txtCliente.getText();
+                    String habitacion = (String) comboHabitacion.getSelectedItem();
+                    String fechaEntrada = txtEntrada.getText();
+                    String fechaSalida = txtSalida.getText();
+
+                    try {
+                        conexion.conectar();
+
+                        // Verificar si el cliente existe
+                        ResultSet rsCliente = conexion.ejecutarSelect(
+                            "SELECT DNI FROM clientes WHERE DNI = '" + dniCliente + "'");
+                        if (!rsCliente.next()) {
+                            JOptionPane.showMessageDialog(null, "Error: El cliente con DNI " + dniCliente + " no existe.");
+                            return;
+                        }
+
+                        // Verificar si la habitación está disponible
+                        ResultSet rsHab = conexion.ejecutarSelect(
+                            "SELECT Estado FROM habitaciones WHERE Numero_Hab = " + habitacion);
+                        if (rsHab.next() && !rsHab.getString("Estado").equals("O")) {
+                            JOptionPane.showMessageDialog(null, "Error: La habitación " + habitacion + " no está disponible.");
+                            return;
+                        }
+
+                        // Verificar que la fecha de salida sea posterior a la entrada
+                        if (fechaSalida.compareTo(fechaEntrada) <= 0) {
+                            JOptionPane.showMessageDialog(null, "Error: La fecha de salida debe ser posterior a la de entrada.");
+                            return;
+                        }
+
+                        // Insertar la reserva
+                        String sentencia = "INSERT INTO reservas (FK_Cliente, FK_Habitacion, Fecha_Entrada, Fecha_Salida) VALUES ('"
+                                + dniCliente + "', " + habitacion + ", '" + fechaEntrada + "', '" + fechaSalida + "')";
+                        int filas = conexion.ejecutarInsertDeleteUpdate(sentencia);
+                        if (filas > 0) {
+                            // Actualizar estado de la habitación a Ocupada
+                            conexion.ejecutarInsertDeleteUpdate(
+                                "UPDATE habitaciones SET Estado = 'O' WHERE Numero_Hab = " + habitacion);
+                            JOptionPane.showMessageDialog(null, "Reserva guardada con éxito.");
+                        }
+
+                    } catch (SQLException e1) {
+                        JOptionPane.showMessageDialog(null, "Error de conexión: " + e1.getMessage());
+                    }
                 }
-            }
-        });
+            });
         contentPane.add(btnGuardar);
 
         // Botón Volver
