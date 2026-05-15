@@ -55,7 +55,7 @@ public class Ventana_ReservarHabitacion extends JFrame {
         lblTitulo.setBounds(100, 10, 270, 35);
         contentPane.add(lblTitulo);
 
-        // DNI Cliente
+        // DNI Clientee
         JLabel lblCliente = new JLabel("DNI Cliente:");
         lblCliente.setFont(new Font("Tahoma", Font.BOLD, 11));
         lblCliente.setBounds(40, 60, 80, 20);
