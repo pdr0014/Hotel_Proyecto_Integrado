@@ -111,7 +111,7 @@ public class Ventana_ReservarHabitacion extends JFrame {
         });
         contentPane.add(btnGuardar);
 
-        // ── Botón Volver ──────────────────────────────────────────────────────
+        // Botón Volver
         JButton btnVolver = new JButton("Volver");
         btnVolver.setBackground(new Color(255, 255, 255));
         btnVolver.setBounds(0, 0, 89, 23);
