@@ -79,8 +79,16 @@ public class Ventana_1 extends JFrame {
 		btnNewButton_3.setFont(new Font("Dialog", Font.BOLD, 12));
 		btnNewButton_3.setBackground(new Color(255, 255, 255));
 		btnNewButton_3.setBounds(142, 178, 150, 23);
+		btnNewButton_3.addActionListener(new ActionListener() {
+		    // ABRIR VENTANA ESTADO HABITACIÓN DESDE VENTANA_1
+		    public void actionPerformed(ActionEvent e) {
+		        Ventana_EstadoHabitacion ventana = new Ventana_EstadoHabitacion();
+		        ventana.setVisible(true);
+		        dispose(); // CERRAR VENTANA
+		    }
+		});
 		getContentPane().add(btnNewButton_3);
-
+	
 		// BOTON ELIMINAR RESERVA
 		JButton btnNewButton_2 = new JButton("Eliminar Reserva");
 		btnNewButton_2.setFont(new Font("Dialog", Font.BOLD, 12));
