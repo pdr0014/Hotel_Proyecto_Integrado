@@ -61,7 +61,7 @@ public class Ventana_EliminarReserva extends JFrame {
 	    contentPane.add(lblTitulo);
 
 	    // Tabla
-	    String[] columnas = {"ID", "FK_Cliente", "FK_Habitacion", "Fecha Entrada", "Fecha Salida", "Estado Pago"};
+	    String[] columnas = {"ID", "FK_Cliente", "FK_Habitacion", "Fecha Entrada", "Fecha Salida"};
 	    DefaultTableModel modelo = new DefaultTableModel(columnas, 0);
 	    JTable tabla = new JTable(modelo);
 	    JScrollPane scrollPane = new JScrollPane(tabla);
@@ -79,7 +79,6 @@ public class Ventana_EliminarReserva extends JFrame {
 	                rs.getString("FK_Habitacion"),
 	                rs.getString("Fecha_Entrada"),
 	                rs.getString("Fecha_Salida"),
-	                rs.getString("Estado_Pago")
 	            };
 	            modelo.addRow(fila);
 	        }
